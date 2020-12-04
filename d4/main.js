@@ -16,12 +16,11 @@ const regex = [
 
 //-----PART 1---------------------
 
-// let goodCount = 0
-// for (var p = 0; p < passports.length; p++) {
-//     var goodPassport = fields.every(field => passports[p].includes(field));
-//     if (goodPassport) goodCount += 1
-// }
-// console.log(goodCount)
+let goodCount = 0
+for (var p = 0; p < passports.length; p++) {
+    if (fields.every(field => passports[p].includes(field))) goodCount += 1
+}
+console.log(goodCount)
 
 //--------------------------------
 
@@ -29,9 +28,7 @@ const regex = [
 
 let goodData = 0
 for (var p = 0; p < passports.length; p++) {
-    data = passports[p].replace(/\r\n/g, " ")
-    var goodPassport = regex.every(reg => data.match(reg));
-    if (goodPassport) goodData += 1
+    if (regex.every(reg => passports[p].match(reg))) goodData += 1
 }
 console.log(goodData)
 
